@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse, search and filter the product catalog.">
+  <title>Product Catalog - CatalogHub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="catalog">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="site-header"></header>
+
+  <main id="main">
+    <div class="container">
+      <div class="page-header">
+        <div>
+          <h1>Product Catalog</h1>
+          <p>Search, filter and browse all products.</p>
+        </div>
+      </div>
+
+      <!-- Search and filters -->
+      <form id="filter-form" class="panel" aria-label="Search and filter products">
+        <div class="filters">
+          <div class="form-group search-group">
+            <label for="search">Search by name or category</label>
+            <input type="search" id="search" name="search" placeholder="e.g. mobile, shoes, Electronics" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" name="category">
+              <option value="">All categories</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="brand">Brand</label>
+            <select id="brand" name="brand">
+              <option value="">All brands</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="minPrice">Min price</label>
+            <input type="number" id="minPrice" name="minPrice" min="0" step="any" placeholder="0">
+          </div>
+          <div class="form-group">
+            <label for="maxPrice">Max price</label>
+            <input type="number" id="maxPrice" name="maxPrice" min="0" step="any" placeholder="Any">
+          </div>
+        </div>
+
+        <div class="filters-row-2">
+          <div class="form-group">
+            <label for="sort">Sort by</label>
+            <select id="sort" name="sort">
+              <option value="createdAt:desc">Newest first</option>
+              <option value="createdAt:asc">Oldest first</option>
+              <option value="price:asc">Price: low to high</option>
+              <option value="price:desc">Price: high to low</option>
+              <option value="name:asc">Name: A to Z</option>
+              <option value="name:desc">Name: Z to A</option>
+              <option value="stock:desc">Stock: most first</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="limit">Products per page</label>
+            <select id="limit" name="limit">
+              <option value="4">4</option>
+              <option value="8" selected>8</option>
+              <option value="12">12</option>
+              <option value="24">24</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-outline" id="reset-filters">Clear filters</button>
+        </div>
+      </form>
+
+      <p class="results-info" id="results-info" aria-live="polite"></p>
+
+      <!-- Products appear here (JavaScript fills this in) -->
+      <div id="product-grid"></div>
+
+      <nav class="pagination" id="pagination" aria-label="Pagination" hidden></nav>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">&copy; <span id="footer-year"></span> CatalogHub &middot; Product Catalog Management System</div>
+  </footer>
+
+  <div id="toast-container" aria-live="polite"></div>
+  <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+# Dependencies
+
+node_modules/
+
+# Secrets - NEVER commit your real .env file
+
+.env
+.env.local
+
+# Logs
+
+npm-debug.log*
+*.log
+
+# Operating system files
+
+.DS_Store
+Thumbs.db
+
+# Editors
+
+.vscode/
+.idea/
+
+# Git metadata folder
+
+.git-project/
+
